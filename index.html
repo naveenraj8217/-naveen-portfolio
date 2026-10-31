@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naveen Raj A | Video Editor, Designer and Event AV</title>
+<meta name="description" content="Portfolio of Naveen Raj A: video editing, digital marketing, UI/UX design, event management and anchoring. Based in Pattukkottai, Thanjavur.">
+<meta name="theme-color" content="#2F54FF">
+<meta property="og:title" content="Naveen Raj A | Video Editor, Designer and Event AV">
+<meta property="og:description" content="Video editing, digital marketing, UI/UX design, event management and anchoring.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F54FF'/%3E%3Ctext x='32' y='45' font-size='36' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F4F6FB;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+img,video{max-width:100%}
+.root{--accent2:#8B3DFF;--ink:#0B1020;--muted:#55607A;--grad:linear-gradient(135deg,var(--accent),var(--accent2));background:#F4F6FB;color:#0B1020;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+@supports (color: color-mix(in srgb, red, blue)) {
+.root{--accent2:color-mix(in srgb, var(--accent) 55%, #8B3DFF)}
+}
+
+/* keyframes */
+@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.9);opacity:.35}}
+@keyframes wa{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}100%{box-shadow:0 0 0 22px rgba(37,211,102,0)}}
+@keyframes shimmer{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes gshift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+@keyframes sweep{0%{transform:translateX(-120%) skewX(-18deg)}60%,100%{transform:translateX(320%) skewX(-18deg)}}
+@keyframes ripple{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.9);opacity:0}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+
+/* layout */
+.wrap{width:100%;max-width:1344px;margin:0 auto;padding-left:48px;padding-right:48px;box-sizing:border-box}
+.sec{padding-top:112px;padding-bottom:112px}
+.stack{display:flex;flex-direction:column;gap:48px}
+.row{display:flex;flex-wrap:wrap;gap:24px}
+.h2{margin:0;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(36px,6vw,80px);line-height:1;letter-spacing:-.03em}
+.h3{margin:0;font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,44px);line-height:1.1;letter-spacing:-.02em}
+.h4{margin:0;font-family:'Syne',sans-serif;font-weight:700;font-size:25px;line-height:1.2;letter-spacing:-.02em}
+.eyebrow{font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:#55607A}
+.dim{color:#AEB6CF}
+.pill{font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px}
+.blk-head{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;justify-content:space-between}
+.blk-head p{margin:0;max-width:520px}
+
+/* gradient bits */
+.gtext{background:linear-gradient(90deg,var(--accent),var(--accent2),#FF7A59,var(--accent));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
+.grad-btn{background:var(--grad);color:#FFFFFF}
+.hero-bg{position:relative;overflow:hidden;background:radial-gradient(60% 55% at 88% 8%,rgba(139,61,255,.20),transparent 70%),radial-gradient(50% 50% at 8% 92%,rgba(47,84,255,.18),transparent 70%),radial-gradient(40% 40% at 62% 100%,rgba(255,200,61,.26),transparent 70%),#F4F6FB}
+.blob{position:absolute;border-radius:50%;pointer-events:none;animation:drift 14s ease-in-out infinite}
+.b1{width:520px;height:520px;top:-180px;right:-140px;background:radial-gradient(circle,rgba(139,61,255,.32),transparent 65%)}
+.b2{width:460px;height:460px;bottom:-200px;left:-120px;background:radial-gradient(circle,rgba(47,84,255,.28),transparent 65%);animation-delay:-5s}
+.b3{width:320px;height:320px;top:40%;left:46%;background:radial-gradient(circle,rgba(255,200,61,.30),transparent 65%);animation-delay:-9s}
+
+/* click animation: springy press plus a ring that expands on release */
+.tap{--ring:var(--accent);position:relative;transition:transform .55s cubic-bezier(.3,1.7,.5,1),box-shadow .3s}
+.tap::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 16px var(--ring);opacity:0;transition:opacity .6s ease-out,box-shadow .6s ease-out;pointer-events:none}
+.tap:active{transform:scale(.93);transition-duration:.08s}
+.tap:active::after{box-shadow:0 0 0 2px var(--ring);opacity:.9;transition:none}
+.dark .tap{--ring:#FFC83D}
+.on-grad .tap{--ring:#FFFFFF}
+.lift:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,16,32,.16)}
+.lift.tap:active{transform:scale(.96)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:17px;padding:16px 28px;border-radius:999px;min-height:44px;box-sizing:border-box}
+.btn:hover{transform:translateY(-3px)}
+.btn.tap:active{transform:scale(.93)}
+.btn-lg{font-size:18px;padding:18px 32px}
+.lnk:hover{text-decoration:underline}
+
+/* nav */
+.nav{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:24px;position:relative;z-index:2}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px 26px;align-items:center}
+.nav-links a.l{font-size:16px;font-weight:500;padding:10px 0}
+.nav-links a.l:hover{color:var(--accent)}
+.nav-links a.cta{font-size:16px;font-weight:700;padding:12px 22px;border-radius:999px}
+
+/* floating contact buttons */
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;flex-direction:column;gap:12px}
+.fab a{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(11,16,32,.28)}
+.wa-float{animation:wa 2s ease-out infinite}
+
+/* hero */
+.hero{position:relative;z-index:1;padding-top:56px;padding-bottom:96px;display:flex;flex-direction:column;gap:36px}
+.hero-tag{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#55607A}
+.hero-tag i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s ease-in-out infinite}
+.hero-h1{margin:0;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,9.5vw,136px);line-height:.98;letter-spacing:-.04em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+
+/* marquee */
+.marquee{overflow:hidden;background:linear-gradient(90deg,#0B1020,#1B1450 50%,#0B1020);color:#FFFFFF;padding:26px 0}
+.marquee-track{display:flex;width:max-content;animation:slide 30s linear infinite;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(28px,4.5vw,56px);letter-spacing:-.03em;white-space:nowrap}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.mq{display:flex;align-items:center;gap:44px;padding-right:44px}
+.mq b{color:#FFC83D;font-weight:800}
+
+/* about */
+.about{display:flex;flex-wrap:wrap;gap:56px 80px;align-items:flex-start}
+.portrait-frame{flex:1 1 min(100%,360px);min-width:0;padding:10px;border-radius:36px;background:var(--grad);background-size:200% 200%;animation:gshift 8s ease-in-out infinite;box-sizing:border-box}
+.portrait{display:block;width:100%;height:600px;border-radius:27px;object-fit:cover;object-position:center top;background:#DDE2EE}
+.about-text{flex:1.4 1 min(100%,420px);min-width:0;display:flex;flex-direction:column;gap:26px}
+.about-text p{margin:0;font-size:18px;color:#3A4460}
+
+/* cards */
+.card{background:#FFFFFF;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.edu-card{background:linear-gradient(160deg,#FFFFFF,#E9EDFB);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:10px;flex:1 1 min(100%,360px);min-width:0}
+.skill{flex:1 1 min(100%,260px);min-width:0;background:#FFFFFF;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.skill::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--bar)}
+.skill p{margin:0;color:#55607A;font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+/* work */
+.work{background:linear-gradient(160deg,#0B1020 0%,#141A3D 55%,#271260 100%);color:#FFFFFF}
+.work .stack{gap:96px}
+.vid-row{display:flex;flex-wrap:wrap;gap:40px 48px;align-items:center}
+.vid-text{flex:1 1 min(100%,320px);min-width:0;display:flex;flex-direction:column;gap:22px}
+.vid-text p{margin:0}
+.vid{margin:0;flex:0 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.vid video{display:block;width:100%;aspect-ratio:9 / 16;border-radius:26px;background:#000000;object-fit:cover;box-shadow:0 0 0 3px rgba(139,61,255,.55),0 28px 70px rgba(47,84,255,.38)}
+.vid figcaption{font-size:15px;color:#AEB6CF;text-align:center}
+.ui-row{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.ui-card{min-width:0;display:flex;flex-direction:column;gap:16px}
+.ui-img{display:block;width:100%;height:auto;border-radius:24px;background:#FFFFFF}
+.pcard{margin:0;flex:1 1 min(100%,420px);min-width:0;background:linear-gradient(160deg,#1B2358,#12183A);border-radius:26px;display:flex;flex-direction:column}
+.ph{overflow:hidden;border-radius:26px 26px 0 0}
+.ph img{display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover .ph img{transform:scale(1.07)}
+.pcap{padding:24px 28px 30px;display:flex;flex-direction:column;gap:8px}
+.pcap p{margin:0;color:#AEB6CF;font-size:16px}
+
+/* anchoring video cards */
+.acard{flex:1 1 min(100%,340px);min-width:0;display:flex;flex-direction:column;gap:16px;border-radius:26px}
+.athumb{position:relative;aspect-ratio:16 / 9;border-radius:26px;overflow:hidden;background:linear-gradient(135deg,#2F54FF,#8B3DFF,#FF7A59,#2F54FF);background-size:300% 300%;animation:gshift 7s ease-in-out infinite}
+.afallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.92)}
+.aimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:zoom 14s ease-in-out infinite alternate}
+.athumb::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(11,16,32,.25),rgba(11,16,32,0) 35%,rgba(11,16,32,.78))}
+.shine{position:absolute;top:0;bottom:0;left:0;width:30%;z-index:3;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);animation:sweep 4.5s ease-in-out infinite}
+.onair{position:absolute;top:16px;left:16px;z-index:4;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(11,16,32,.72);color:#FFFFFF;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.onair i{width:8px;height:8px;border-radius:50%;background:#FF4D5E;display:inline-block;animation:blink 1.2s ease-in-out infinite}
+.eq{position:absolute;left:18px;bottom:16px;z-index:4;display:flex;align-items:flex-end;gap:4px;height:28px}
+.eq b{display:block;width:5px;height:100%;border-radius:3px;background:#FFFFFF;transform-origin:bottom;animation:eq 1s ease-in-out infinite}
+.eq b:nth-child(2){animation-delay:-.2s;animation-duration:.8s}
+.eq b:nth-child(3){animation-delay:-.45s;animation-duration:1.2s}
+.eq b:nth-child(4){animation-delay:-.1s;animation-duration:.9s}
+.eq b:nth-child(5){animation-delay:-.6s;animation-duration:1.1s}
+.play{position:absolute;top:50%;left:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:#FFC83D;display:flex;align-items:center;justify-content:center;z-index:4;transition:transform .35s ease}
+.play::before{content:"";position:absolute;inset:0;border-radius:50%;background:#FFC83D;z-index:-1;animation:ripple 2s ease-out infinite}
+.acard:hover .play{transform:scale(1.12)}
+.acap{display:flex;flex-direction:column;gap:2px}
+.acap span{font-size:15px;color:#AEB6CF}
+
+/* experience */
+.exp{display:flex;flex-wrap:wrap;gap:24px 64px;border-top:1px solid #DDE2EE;padding-top:32px}
+.exp-head{flex:1 1 min(100%,280px);min-width:0;display:flex;flex-direction:column;gap:6px}
+.exp ul{flex:2 1 min(100%,420px);min-width:0;margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;color:#3A4460}
+
+/* contact */
+.contact{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);background-size:160% 160%;animation:gshift 10s ease-in-out infinite;color:#FFFFFF}
+.contact-h{margin:0;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(38px,9vw,128px);line-height:.95;letter-spacing:-.04em}
+.footer{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding-top:32px;padding-bottom:32px;font-size:15px;color:#55607A}
+
+/* scroll reveal (small blocks only) */
+@supports (animation-timeline: view()) {
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+}
+
+/* mobile */
+@media (max-width:760px) {
+.wrap{padding-left:20px;padding-right:20px}
+.sec{padding-top:64px;padding-bottom:64px}
+.stack{gap:32px}
+.work .stack{gap:64px}
+.nav{padding-top:16px;padding-bottom:8px}
+.logo{font-size:22px}
+.nav-links{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:4px 22px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{white-space:nowrap;flex:0 0 auto}
+.hero{padding-top:32px;padding-bottom:56px;gap:28px}
+.hero-ctas a{flex:1 1 100%}
+.about{gap:32px}
+.portrait{height:auto;aspect-ratio:4 / 5}
+.about-text p{font-size:17px}
+.edu-card,.skill,.card{padding:24px}
+.vid{flex:1 1 100%;max-width:340px;margin:0 auto}
+.vid-row{gap:32px}
+.pcap{padding:20px 20px 24px}
+.fab{right:14px;bottom:14px}
+.fab a{width:50px;height:50px}
+.contact .btn{flex:1 1 100%}
+.btn-lg{font-size:16px;padding:16px 20px}
+.footer{padding-bottom:96px}
+.blob{opacity:.7}
+}
+@media (prefers-reduced-motion: reduce) {
+*{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="root" style="--accent: #2F54FF;">
+
+  <!-- FLOATING CONTACT BUTTONS -->
+  <div class="fab">
+    <a class="tap" href="tel:+919500711506" aria-label="Call Naveen" style="background: var(--grad); color: #FFFFFF;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    </a>
+    <a class="tap wa-float" href="https://wa.me/919500711506" aria-label="Chat with Naveen on WhatsApp" style="background: linear-gradient(135deg, #25D366, #12B5A6); color: #0B1020;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9c0 3 3 6 6 6l1.2-1.5-2-1-.8.7a4 4 0 0 1-2-2l.7-.8-1-2z"/></svg>
+    </a>
+  </div>
+
+  <!-- HERO (with nav) -->
+  <section id="top" class="hero-bg">
+    <span class="blob b1" aria-hidden="true"></span>
+    <span class="blob b2" aria-hidden="true"></span>
+    <span class="blob b3" aria-hidden="true"></span>
+
+    <header class="wrap nav">
+      <a class="logo" href="#top">Naveen Raj A<span style="color: var(--accent);">.</span></a>
+      <nav class="nav-links" aria-label="Main">
+        <a class="l" href="#about">About</a>
+        <a class="l" href="#education">Education</a>
+        <a class="l" href="#skills">Skills</a>
+        <a class="l" href="#work">Work</a>
+        <a class="l" href="#experience">Experience</a>
+        <a class="cta grad-btn tap" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="wrap hero">
+      <div class="hero-tag rise" style="animation-delay: 0.05s;"><i aria-hidden="true"></i><span>Video editor / Designer / Event technician</span></div>
+      <h1 class="hero-h1 rise" style="animation-delay: 0.2s;">Hi, I'm Naveen. I edit videos, design creatives and run events <span class="gtext">live.</span></h1>
+      <div class="hero-ctas rise" style="animation-delay: 0.4s;">
+        <a class="btn tap" href="https://wa.me/919500711506" style="background: linear-gradient(135deg, #25D366, #12B5A6); color: #0B1020;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          WhatsApp me
+        </a>
+        <a class="btn grad-btn tap" href="tel:+919500711506">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call me
+        </a>
+        <a class="btn tap" href="#work" style="border: 2px solid #0B1020;">See my work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="mq"><span>Video Editing</span><b>/</b><span>Digital Marketing</span><b>/</b><span>UI and UX</span><b>/</b><span>Event Management</span><b>/</b><span>Anchoring</span><b>/</b></div>
+      <div class="mq"><span>Video Editing</span><b>/</b><span>Digital Marketing</span><b>/</b><span>UI and UX</span><b>/</b><span>Event Management</span><b>/</b><span>Anchoring</span><b>/</b></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="sec">
+    <div class="wrap about">
+      <div class="portrait-frame reveal">
+        <img class="portrait" src="assets/img/naveen-portrait.jpg" alt="Portrait of Naveen Raj A">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">About me</span>
+        <h2 class="h2" style="font-size: clamp(32px, 4.6vw, 62px); line-height: 1.05;">Creative work on screen, technical work behind the stage.</h2>
+        <p>I am Naveen Raj A from Pattukkottai, Thanjavur. I am a creative and versatile professional working across video editing, digital marketing, event management and audio-visual production support. I make promotional videos, social media content, posters and digital creatives.</p>
+        <p>At events I handle camera setup, stage lighting, AV connections and console output. I studied B.Tech in Artificial Intelligence and Data Science, and I would love to contribute to international media, event production and digital marketing teams.</p>
+        <div><a class="btn grad-btn tap" href="#contact">Get in touch</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="sec" style="background: linear-gradient(180deg, #FFFFFF, #EEF1FB); border-top: 1px solid #DDE2EE; border-bottom: 1px solid #DDE2EE;">
+    <div class="wrap stack">
+      <h2 class="h2 reveal">Education</h2>
+      <div class="row">
+        <div class="edu-card lift tap reveal">
+          <span class="eyebrow">2021 to 2025</span>
+          <h3 class="h4">B.Tech in Artificial Intelligence and Data Science</h3>
+          <span class="muted">Sir Issac Newton College of Engineering and Technology, Nagapattinam, Tamil Nadu</span>
+          <span style="font-weight: 700;">CGPA 7.7</span>
+        </div>
+        <div class="edu-card lift tap reveal">
+          <span class="eyebrow">2019 to 2021</span>
+          <h3 class="h4">Higher Secondary Education</h3>
+          <span class="muted">Laurel Higher Secondary School, Pattukkottai, Tamil Nadu</span>
+          <span style="font-weight: 700;">78%</span>
+        </div>
+      </div>
+      <div class="row" style="gap: 32px 64px; border-top: 1px solid #DDE2EE; padding-top: 32px;">
+        <div style="flex: 2 1 min(100%, 420px); min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+          <span class="eyebrow">Workshops and programs</span>
+          <span>Master of Machine hands-on ML workshop, Oct 2023</span>
+          <span>DevOps program, Sep 2023</span>
+          <span>Role of Data Science in AI and ML using Python, Feb 2023</span>
+        </div>
+        <div style="flex: 1 1 min(100%, 200px); min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+          <span class="eyebrow">Languages</span>
+          <span>Tamil</span>
+          <span>English</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="sec">
+    <div class="wrap stack">
+      <h2 class="h2 reveal">Skills</h2>
+      <div class="row">
+        <div class="skill lift tap reveal" style="--bar: linear-gradient(90deg, var(--accent), var(--accent2));">
+          <h3 class="h4">Video and design</h3>
+          <p>Professional video editing, motion graphics and promo content, plus photo editing, logos, illustration and UI/UX wireframes and prototypes.</p>
+          <div class="chips">
+            <span class="pill" style="background: #E9EDFB;">Premiere Pro</span>
+            <span class="pill" style="background: #E9EDFB;">Photoshop</span>
+            <span class="pill" style="background: #E9EDFB;">Illustrator</span>
+            <span class="pill" style="background: #E9EDFB;">Figma</span>
+            <span class="pill" style="background: #E9EDFB;">Canva</span>
+            <span class="pill" style="background: #E9EDFB;">UI/UX</span>
+          </div>
+        </div>
+        <div class="skill lift tap reveal" style="--bar: linear-gradient(90deg, #FFC83D, #FF7A59);">
+          <h3 class="h4">Marketing and content</h3>
+          <p>Social media marketing, content strategy and brand promotion, with engaging content for social media and online platforms.</p>
+          <div class="chips">
+            <span class="pill" style="background: #FFF1C9;">Digital marketing</span>
+            <span class="pill" style="background: #FFF1C9;">Content creation</span>
+            <span class="pill" style="background: #FFF1C9;">Social media</span>
+            <span class="pill" style="background: #FFF1C9;">Brand promotion</span>
+          </div>
+        </div>
+        <div class="skill lift tap reveal" style="--bar: linear-gradient(90deg, #0B1020, #3A4570);">
+          <h3 class="h4">Event and AV</h3>
+          <p>Event planning, stage coordination, setup and live operations, with camera, lighting, console and AV equipment handling.</p>
+          <div class="chips">
+            <span class="pill" style="background: #E6E8EE;">Event management</span>
+            <span class="pill" style="background: #E6E8EE;">Stage lighting</span>
+            <span class="pill" style="background: #E6E8EE;">Camera operations</span>
+            <span class="pill" style="background: #E6E8EE;">Console operations</span>
+            <span class="pill" style="background: #E6E8EE;">AV support</span>
+          </div>
+        </div>
+        <div class="skill lift tap reveal" style="--bar: linear-gradient(90deg, #25D366, #12B5A6);">
+          <h3 class="h4">Communication</h3>
+          <p>Public speaking, event hosting and audience engagement, in Tamil and English.</p>
+          <div class="chips">
+            <span class="pill" style="background: #DDF7E7;">Anchoring</span>
+            <span class="pill" style="background: #DDF7E7;">Public speaking</span>
+            <span class="pill" style="background: #DDF7E7;">Tamil</span>
+            <span class="pill" style="background: #DDF7E7;">English</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="work dark sec">
+    <div class="wrap stack">
+      <h2 class="h2 reveal">Selected work</h2>
+
+      <!-- Video editing demos -->
+      <div id="video" style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="blk-head">
+          <h3 class="h3">Video editing demos</h3>
+          <p class="dim">Short-form videos with motion graphics, overlays and quick cutaways, edited in Adobe Premiere Pro.</p>
+        </div>
+        <div class="vid-row">
+          <div class="vid-text">
+            <span class="eyebrow" style="color: #FFC83D;">Demo reels</span>
+            <p style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(24px, 2.8vw, 36px); line-height: 1.15; letter-spacing: -0.02em;">Press play to watch two of my edits.</p>
+            <p class="dim">One is an explainer-style reel with motion graphics. The other is a behind-the-scenes brand reel. Both are cut for vertical, social-first viewing.</p>
+            <div class="chips">
+              <span class="pill" style="background: #1F2750;">Premiere Pro</span>
+              <span class="pill" style="background: #1F2750;">Motion graphics</span>
+              <span class="pill" style="background: #1F2750;">Short-form reels</span>
+            </div>
+            <div><a class="btn tap" href="https://wa.me/919500711506" style="background: linear-gradient(135deg, #25D366, #12B5A6); color: #0B1020;">Want a video like this? WhatsApp me</a></div>
+          </div>
+          <figure class="vid">
+            <video controls playsinline preload="metadata" poster="assets/img/demo-reel-1-poster.jpg" src="assets/video/demo-reel-1.mp4"></video>
+            <figcaption>Explainer reel with motion graphics</figcaption>
+          </figure>
+          <figure class="vid">
+            <video controls playsinline preload="metadata" poster="assets/img/demo-reel-2-poster.jpg" src="assets/video/demo-reel-2.mp4"></video>
+            <figcaption>Behind-the-scenes brand reel</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- UI/UX -->
+      <div id="ui" style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="blk-head">
+          <h3 class="h3">UI/UX design</h3>
+          <p class="dim">Web interfaces, from paper wireframes to finished screens.</p>
+        </div>
+        <div class="ui-row">
+          <div class="ui-card reveal" style="flex: 1.4 1 min(100%, 480px);">
+            <img class="ui-img" src="assets/img/car-craft.jpg" alt="Car Craft car selling webpage design showing a Jeep Compass with side navigation and Buy Now and View More buttons">
+            <h4 class="h4">Car Craft: car selling webpage</h4>
+            <p class="dim" style="margin: 0; font-size: 16px;">A premium car selling interface designed in Figma, with a large model name behind the car, side navigation, and clear Buy Now and View More actions.</p>
+          </div>
+          <div class="ui-card reveal" style="flex: 1 1 min(100%, 360px);">
+            <img class="ui-img" src="assets/img/echoon.jpg" alt="Echoon headphone website: hand-drawn wireframes on paper above the finished entry screen and product page">
+            <h4 class="h4">Echoon: headphone product page</h4>
+            <p class="dim" style="margin: 0; font-size: 16px;">From hand-drawn wireframes to the finished entry screen and product page for a headphone brand, with a purple colour theme.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event management and AV -->
+      <div id="events" style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="blk-head">
+          <h3 class="h3">Event management and AV</h3>
+          <p class="dim">Setup and live operation, from the studio floor to the control desk.</p>
+        </div>
+        <div class="row" style="gap: 28px;">
+          <figure class="pcard lift tap reveal">
+            <div class="ph"><img src="assets/img/event-management.jpg" alt="Live TV studio set with two cameras on tripods, a lighting rig overhead and a talk show set" style="object-position: center 55%;"></div>
+            <figcaption class="pcap">
+              <h4 class="h4">Event management</h4>
+              <p>Setup and live operation of studio and stage events: camera positions, lighting rig and show-day coordination.</p>
+            </figcaption>
+          </figure>
+          <figure class="pcard lift tap reveal">
+            <div class="ph"><img src="assets/img/av-console.jpg" alt="Video switcher console screen showing three camera feeds and a presentation slide during a live stream"></div>
+            <figcaption class="pcap">
+              <h4 class="h4">AV console and live output</h4>
+              <p>Console and output operations for a live multi-camera stream, switching between cameras and presentation slides.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Anchoring -->
+      <div id="anchoring" style="display: flex; flex-direction: column; gap: 32px;">
+        <div class="blk-head">
+          <h3 class="h3">Anchoring</h3>
+          <p class="dim">Event hosting and on-camera presenting. Tap a video to watch it on YouTube.</p>
+        </div>
+        <div class="row" style="gap: 32px;">
+
+          <a class="acard tap" href="https://youtu.be/KoqHWs0pTww" target="_blank" rel="noopener" aria-label="Watch anchoring video 1 on YouTube">
+            <div class="athumb">
+              <div class="afallback" aria-hidden="true"><svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></div>
+              <img class="aimg" src="https://i.ytimg.com/vi/KoqHWs0pTww/hqdefault.jpg" alt="" loading="lazy">
+              <span class="shine" aria-hidden="true"></span>
+              <span class="onair"><i aria-hidden="true"></i>Anchoring</span>
+              <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span>
+              <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="#0B1020"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div class="acap"><h4 class="h4">Anchoring video 1</h4><span>Watch on YouTube</span></div>
+          </a>
+
+          <a class="acard tap" href="https://youtu.be/eJsqUV929AM" target="_blank" rel="noopener" aria-label="Watch anchoring video 2 on YouTube">
+            <div class="athumb">
+              <div class="afallback" aria-hidden="true"><svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></div>
+              <img class="aimg" src="https://i.ytimg.com/vi/eJsqUV929AM/hqdefault.jpg" alt="" loading="lazy" style="animation-delay: -4s;">
+              <span class="shine" aria-hidden="true" style="animation-delay: -1.5s;"></span>
+              <span class="onair"><i aria-hidden="true"></i>Anchoring</span>
+              <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span>
+              <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="#0B1020"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div class="acap"><h4 class="h4">Anchoring video 2</h4><span>Watch on YouTube</span></div>
+          </a>
+
+          <a class="acard tap" href="https://youtu.be/ppGT_YeIxX4" target="_blank" rel="noopener" aria-label="Watch anchoring video 3 on YouTube">
+            <div class="athumb">
+              <div class="afallback" aria-hidden="true"><svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></div>
+              <img class="aimg" src="https://i.ytimg.com/vi/ppGT_YeIxX4/hqdefault.jpg" alt="" loading="lazy" style="animation-delay: -8s;">
+              <span class="shine" aria-hidden="true" style="animation-delay: -3s;"></span>
+              <span class="onair"><i aria-hidden="true"></i>Anchoring</span>
+              <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span>
+              <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="#0B1020"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+            <div class="acap"><h4 class="h4">Anchoring video 3</h4><span>Watch on YouTube</span></div>
+          </a>
+
+        </div>
+        <div><a class="btn tap" href="https://www.youtube.com/@MdmPowerweeders" target="_blank" rel="noopener" style="background: linear-gradient(135deg, #FFC83D, #FF7A59); color: #0B1020;">More on the YouTube channel</a></div>
+      </div>
+
+      <!-- AI project -->
+      <div class="row reveal" style="gap: 16px 48px; align-items: center; justify-content: space-between; border-top: 1px solid #2A3358; padding-top: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 min(100%, 380px); min-width: 0;">
+          <span class="eyebrow" style="color: #FFC83D;">Also built</span>
+          <h4 class="h4">End-to-End AutoML Deployment Agent</h4>
+        </div>
+        <p class="dim" style="margin: 0; flex: 1 1 min(100%, 380px); min-width: 0;">AutoML pipeline automation with explainability, built using machine learning during my B.Tech in AI and Data Science.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="sec">
+    <div class="wrap stack">
+      <h2 class="h2 reveal">Experience</h2>
+
+      <div class="exp reveal">
+        <div class="exp-head">
+          <span class="eyebrow">July 2026 to present</span>
+          <h3 class="h4" style="font-size: 28px;">Digital Marketing Executive, Multimedia and Event Production</h3>
+          <span class="muted">Sama Global Tech Private Limited</span>
+        </div>
+        <ul>
+          <li>Handle multimedia production, video editing and video content creation.</li>
+          <li>Operate cameras and manage stage lighting setup and equipment handling.</li>
+          <li>Assist with console operations, output management and live event technical support.</li>
+        </ul>
+      </div>
+
+      <div class="exp reveal">
+        <div class="exp-head">
+          <span class="eyebrow">June 2025 to April 2026</span>
+          <h3 class="h4" style="font-size: 28px;">Digital Marketing Executive</h3>
+          <span class="muted">Modern Dairy Machines</span>
+        </div>
+        <ul>
+          <li>Planned and ran digital marketing content aligned with brand and product communication goals.</li>
+          <li>Created posters, banners, social media creatives and marketing collaterals with professional design tools.</li>
+          <li>Edited promotional videos, product demos and short-form social content to improve engagement and brand visibility.</li>
+          <li>Wrote content ideas and captions with a consistent tone, and supported product launches, campaigns and online promotions with the marketing and sales teams.</li>
+          <li>Tracked content performance to improve reach and engagement, and kept brand guidelines consistent across platforms.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact on-grad sec">
+    <div class="wrap stack" style="gap: 40px;">
+      <h2 class="contact-h reveal">Got a project? Let's talk.</h2>
+      <div class="hero-ctas">
+        <a class="btn btn-lg tap" href="https://wa.me/919500711506" style="background: linear-gradient(135deg, #25D366, #12B5A6); color: #0B1020;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          WhatsApp: +91 95007 11506
+        </a>
+        <a class="btn btn-lg tap" href="tel:+919500711506" style="background: #FFFFFF; color: #0B1020;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call now
+        </a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 18px; font-weight: 700;">
+        <a class="lnk" href="mailto:naveenrogan726@gmail.com" style="padding: 8px 0; overflow-wrap: anywhere;">naveenrogan726@gmail.com</a>
+        <a class="lnk" href="https://www.linkedin.com/in/naveenraj1506" style="padding: 8px 0;">LinkedIn</a>
+        <span style="padding: 8px 0;">Pattukkottai, Thanjavur, Tamil Nadu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wrap footer">
+    <span>2026 Naveen Raj A. All rights reserved.</span>
+    <a class="lnk" href="#top" style="padding: 8px 0; color: #0B1020; font-weight: 700;">Back to top</a>
+  </footer>
+
+</div>
+</body>
+</html>
