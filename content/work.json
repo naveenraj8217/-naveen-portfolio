@@ -1,19 +1,59 @@
 {
   "reels": [
-    {"title": "Explainer reel with motion graphics", "caption": "V1 / Explainer reel with motion graphics", "video": "/assets/video/demo-reel-1.mp4", "poster": "/assets/img/demo-reel-1-poster.jpg"},
-    {"title": "Behind-the-scenes brand reel", "caption": "V2 / Behind-the-scenes brand reel", "video": "/assets/video/demo-reel-2.mp4", "poster": "/assets/img/demo-reel-2-poster.jpg"}
+    {
+      "title": "Explainer reel with motion graphics",
+      "caption": "V1 / Explainer reel with motion graphics",
+      "video": "/assets/video/demo-reel-1.mp4",
+      "poster": "/assets/img/demo-reel-1-poster.jpg"
+    },
+    {
+      "title": "Behind-the-scenes brand reel",
+      "caption": "V2 / Behind-the-scenes brand reel",
+      "video": "/assets/video/demo-reel-2.mp4",
+      "poster": "/assets/img/demo-reel-2-poster.jpg"
+    },
+    {
+      "title": "Doctor promo ad reel",
+      "caption": "Promo ad reel for a doctor",
+      "video": "/assets/uploads/last.mp4"
+    }
   ],
   "ui": [
-    {"title": "Car Craft: car selling webpage", "description": "A premium car selling interface designed in Figma, with a large model name behind the car, side navigation, and clear Buy Now and View More actions.", "image": "/assets/img/car-craft.jpg"},
-    {"title": "Echoon: headphone product page", "description": "From hand-drawn wireframes to the finished entry screen and product page for a headphone brand, with a purple colour theme.", "image": "/assets/img/echoon.jpg"}
+    {
+      "title": "Car Craft: car selling webpage",
+      "description": "A premium car selling interface designed in Figma, with a large model name behind the car, side navigation, and clear Buy Now and View More actions.",
+      "image": "/assets/img/car-craft.jpg"
+    },
+    {
+      "title": "Echoon: headphone product page",
+      "description": "From hand-drawn wireframes to the finished entry screen and product page for a headphone brand, with a purple colour theme.",
+      "image": "/assets/img/echoon.jpg"
+    }
   ],
   "events": [
-    {"title": "Event management", "description": "Setup and live operation of studio and stage events: camera positions, lighting rig and show-day coordination.", "image": "/assets/img/event-management.jpg"},
-    {"title": "AV console and live output", "description": "Console and output operations for a live multi-camera stream, switching between cameras and presentation slides.", "image": "/assets/img/av-console.jpg"}
+    {
+      "title": "Event management",
+      "description": "Setup and live operation of studio and stage events: camera positions, lighting rig and show-day coordination.",
+      "image": "/assets/img/event-management.jpg"
+    },
+    {
+      "title": "AV console and live output",
+      "description": "Console and output operations for a live multi-camera stream, switching between cameras and presentation slides.",
+      "image": "/assets/img/av-console.jpg"
+    }
   ],
   "anchoring": [
-    {"title": "Anchoring video 1", "url": "https://youtu.be/KoqHWs0pTww"},
-    {"title": "Anchoring video 2", "url": "https://youtu.be/eJsqUV929AM"},
-    {"title": "Anchoring video 3", "url": "https://youtu.be/ppGT_YeIxX4"}
+    {
+      "title": "Anchoring video 1",
+      "url": "https://youtu.be/KoqHWs0pTww"
+    },
+    {
+      "title": "Anchoring video 2",
+      "url": "https://youtu.be/eJsqUV929AM"
+    },
+    {
+      "title": "Anchoring video 3",
+      "url": "https://youtu.be/ppGT_YeIxX4"
+    }
   ]
 }
