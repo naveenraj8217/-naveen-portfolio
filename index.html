@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="dW2qAjc2VPV2KOSdjRVsoadrM6BTrOeOc9p_jBa6uTo" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Naveen Raj A | Video Editor, Digital Marketing and Event AV in Thanjavur</title>
@@ -832,7 +831,7 @@ body.dock-on .fab{bottom:78px}
   requestAnimationFrame(loop);
 
   /* ---------- tilt and magnetic ---------- */
-  document.querySelectorAll('.tilt').forEach(function(el){
+  function bindTilt(el){
     var max = parseFloat(el.getAttribute('data-tilt') || 6);
     el.addEventListener('pointermove', function(e){
       if (e.pointerType === 'touch' || reduce) return;
@@ -844,8 +843,9 @@ body.dock-on .fab{bottom:78px}
       el.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
     });
     el.addEventListener('pointerleave', function(){ el.classList.remove('moving'); el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
-  });
-  document.querySelectorAll('.mag').forEach(function(el){
+  }
+  document.querySelectorAll('.tilt').forEach(bindTilt);
+  function bindMag(el){
     el.addEventListener('pointermove', function(e){
       if (e.pointerType === 'touch' || reduce) return;
       var r = el.getBoundingClientRect();
@@ -853,7 +853,8 @@ body.dock-on .fab{bottom:78px}
       el.style.setProperty('--ty', ((e.clientY - r.top - r.height / 2) * .28).toFixed(1) + 'px');
     });
     el.addEventListener('pointerleave', function(){ el.style.setProperty('--tx', '0px'); el.style.setProperty('--ty', '0px'); });
-  });
+  }
+  document.querySelectorAll('.mag').forEach(bindMag);
 
   /* ---------- reveal on scroll ---------- */
   var rvs = [].slice.call(document.querySelectorAll('.rv'));
@@ -1005,6 +1006,43 @@ body.dock-on .fab{bottom:78px}
   if (nb) nb.addEventListener('click', function(){ jump(1); });
   if (sb) sb.addEventListener('click', function(){ stopPlay(); window.scrollBy({ top: -260, behavior: 'smooth' }); });
   if (fb) fb.addEventListener('click', function(){ stopPlay(); window.scrollBy({ top: 260, behavior: 'smooth' }); });
+
+
+  /* ---------- content from content/work.json (edited via /admin) ---------- */
+  function esc(t){ return String(t == null ? '' : t).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function ytId(u){ var m = String(u || '').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/); return m ? m[1] : ''; }
+  function activate(root){
+    root.querySelectorAll('.tilt').forEach(bindTilt);
+    root.querySelectorAll('.mag').forEach(bindMag);
+    root.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
+  var MIC = '<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg>';
+  function renderWork(d){
+    var el, html;
+    if (d.reels && d.reels.length && (el = document.querySelector('#video .vid-row'))){
+      var copy = el.querySelector('.vid-copy');
+      el.querySelectorAll('.vid').forEach(function(n){ n.remove(); });
+      d.reels.forEach(function(r){
+        var f = document.createElement('figure'); f.className = 'vid';
+        f.innerHTML = '<video controls playsinline preload="metadata"' + (r.poster ? ' poster="' + esc(r.poster) + '"' : '') + ' src="' + esc(r.video) + '"></video><figcaption>' + esc(r.caption || r.title) + '</figcaption>';
+        el.appendChild(f);
+      });
+    }
+    if (d.ui && d.ui.length && (el = document.querySelector('#ui .row'))){
+      el.innerHTML = d.ui.map(function(x, i){ return '<article class="pn tilt rv ui-card" data-tilt="4" style="flex:' + (i === 0 ? '1.4 1 min(100%,480px)' : '1 1 min(100%,360px)') + '"><div class="pn-h"><span class="tab on">Design</span><span class="sub">' + esc(x.title.split(':')[0]) + '</span></div><img src="' + esc(x.image) + '" alt="' + esc(x.title) + '" loading="lazy"><div class="cap"><h4>' + esc(x.title) + '</h4><p>' + esc(x.description) + '</p></div></article>'; }).join('');
+      activate(el);
+    }
+    if (d.events && d.events.length && (el = document.querySelector('#events .row'))){
+      el.innerHTML = d.events.map(function(x){ return '<figure class="pn tilt rv pcard" data-tilt="4"><div class="pn-h"><span class="tab on">Event</span><span class="sub">AV</span></div><div class="pimg"><img src="' + esc(x.image) + '" alt="' + esc(x.title) + '" loading="lazy"></div><figcaption class="pcap"><h4>' + esc(x.title) + '</h4><p>' + esc(x.description) + '</p></figcaption></figure>'; }).join('');
+      activate(el);
+    }
+    if (d.anchoring && d.anchoring.length && (el = document.querySelector('#anchoring .row'))){
+      el.innerHTML = d.anchoring.map(function(x, i){ var id = ytId(x.url); return '<a class="pn tilt rv acard" data-tilt="6" href="' + esc(x.url) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(x.title) + ' on YouTube"><div class="athumb"><div class="afb" aria-hidden="true">' + MIC + '</div>' + (id ? '<img class="aimg" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="" loading="lazy" style="animation-delay:-' + (i * 4) + 's">' : '') + '<span class="shine" aria-hidden="true"></span><span class="onair"><i aria-hidden="true"></i>Anchoring</span><span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></span><span class="play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="#111"><path d="M8 5v14l11-7z"/></svg></span></div><div class="acap"><h4>' + esc(x.title) + '</h4><span>Watch on YouTube</span></div></a>'; }).join('');
+      activate(el);
+    }
+    setTimeout(function(){ measure(); }, 100);
+  }
+  if (window.fetch){ fetch('content/work.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){ if (d) renderWork(d); }).catch(function(){}); }
 
   /* ---------- New Project to WhatsApp ---------- */
   var go = document.getElementById('npGo');

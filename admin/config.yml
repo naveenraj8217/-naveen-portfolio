@@ -1,0 +1,56 @@
+# CHANGE THIS: your GitHub "username/repository-name"
+backend:
+  name: github
+  repo: naveenraj8217/-naveen-portfolio
+  branch: main
+
+# Uncomment only for local testing:
+# local_backend: true
+
+site_url: https://naveenrajeditor.netlify.app
+display_url: https://naveenrajeditor.netlify.app
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: portfolio
+    label: Portfolio Content
+    files:
+      - name: work
+        label: Work (videos, designs, events, anchoring)
+        file: content/work.json
+        format: json
+        fields:
+          - label: Video reels
+            name: reels
+            widget: list
+            summary: "{{fields.title}}"
+            hint: "Add a new reel with the + button. Keep each video under 20MB."
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Caption, name: caption, widget: string, required: false }
+              - { label: Video (mp4), name: video, widget: file, choose_url: false }
+              - { label: Thumbnail image, name: poster, widget: image, required: false, choose_url: false }
+          - label: UI/UX designs
+            name: ui
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Image, name: image, widget: image, choose_url: false }
+          - label: Event management and AV photos
+            name: events
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Image, name: image, widget: image, choose_url: false }
+          - label: Anchoring (YouTube links)
+            name: anchoring
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: YouTube link, name: url, widget: string, hint: "Example https://youtu.be/KoqHWs0pTww" }
